@@ -1,0 +1,16 @@
+{
+  "_README": "PLANTILLA, no es la configuracion real. Copia a cline_mcp_settings.json y sustituye PEGAR_AQUI_EL_PAT por tu PAT. NUNCA subas un token real a un repositorio.",
+  "mcpServers": {
+    "github": {
+      "type": "streamableHttp",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "disabled": false,
+      "headers": {
+        "Authorization": "Bearer PEGAR_AQUI_EL_PAT",
+        "X-MCP-Toolsets": "actions,repos,context"
+      },
+      "autoApprove": [],
+      "timeout": 120
+    }
+  }
+}
