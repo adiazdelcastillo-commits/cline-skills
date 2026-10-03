@@ -1,0 +1,31 @@
+# --- SEGURIDAD: nunca versionar credenciales -------------------------------
+cline_mcp_settings.json
+*cline_mcp_settings*.json
+!mcp-settings.template.json
+*.env
+.env*
+token*.txt
+*token*.txt
+secrets*.json
+*credentials*
+*_PAT*
+id_rsa
+*.pem
+*.key
+
+# --- Artefactos -------------------------------------------------------------
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+dist/
+coverage/
+.DS_Store
+Thumbs.db
+
+# --- No versionar la copia de exportacion dentro del propio repo ------------
+skills-export/skills/
+.rpr/
+*.log
