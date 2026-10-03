@@ -1,0 +1,34 @@
+# Reglas de Skills y Ejecucion Remota
+
+## Ejecucion de pruebas de Python
+
+Este proyecto valida su codigo **en la nube de GitHub Actions**, no en la maquina local.
+
+- Si la peticion implica **ejecutar pruebas, validar codigo, correr pytest, comprobar que
+  algo funciona o revisar errores de ejecucion**, y no hay un Python local utilizable,
+  usa el skill **`remote-python-runner`**.
+
+- **No** intentes ejecutar Python, pytest o Docker en local si no hay un interprete funcional.
+
+- El resultado se presenta al usuario con:
+  1. `conclusion` de la corrida (`success` / `failure`)
+  2. Numero de pruebas superadas y falladas
+  3. Los fallos mas relevantes con su mensaje de asercion
+  4. Enlace a la corrida
+
+- Si `conclusion == failure`, **nunca** lo reportes como exitoso.
+- Si se observa `success` junto con `failures > 0` en `report.xml`, es un **bug del
+  pipeline**: reportalo como bug, nunca como aprobado.
+
+## Skills
+
+- Los skills viven en `~/.cline/skills/<nombre>/` con un `SKILL.md` en la raiz.
+- Cline los carga al arrancar: tras instalar o actualizar, **recarga la ventana**.
+- Un `SKILL.md` necesita frontmatter con `name` y `description`; la `description` es lo que
+  determina cuando se activa el skill, asi que debe describir **cuando usarlo**.
+
+## Estilo
+
+- Codigo y comentarios en espanol.
+- Los importes monetarios se calculan con `decimal.Decimal`, nunca con `float`.
+- Toda funcion que reciba entrada del usuario valida y lanza `ValueError` con mensaje claro.
